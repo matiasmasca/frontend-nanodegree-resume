@@ -26,10 +26,39 @@ work.employer = "TEX, Terciar and Connextion";
 work.years = "2000-2014";
 work.city = "Corrientes, ARG";
 
-var education = {};
-education["lastSchool"] = "Facultad de Ciencias Exactas (Universidad Nacional de Nordeste)";
-education["year"] = "2013";
-education["city"] = "Corrientes";
+var education = {
+"schools" : [
+  {
+	"name": "Facultad de Ciencias Exactas (Universidad Nacional de Nordeste)",
+	"city" : "Corrientes, Corrientes, ARG", 
+	"year" : "2008",
+	"degree": "pre-grado"
+	"minor" : "CompSci",
+	"title" : "Programador Universitario de Aplicaciones."
+  },
+ {
+	"name": "Facultad de Ciencias Exactas (Universidad Nacional de Nordeste)",
+	"city" : "Corrientes, Corrientes, ARG",
+	"year" : "2014",
+	"degree" : "Bachelor degree in information systems", 
+	"major" : "information systems",
+	"minor" : "BDD, TDD, CI",
+	"title" : "Licenciatura en Sistemas de Información"
+  }
+	],
+	"onlineCourses": [
+	{
+		"title": "SaaS",
+		"school":"UC BerkeleyX",
+		"dates": 2014
+	},
+	{
+		"title": "JavaScript Basics",
+		"school":"Udacity",
+		"dates": 2014
+	}
+	]
+};
 
 
 var formattedName = HTMLheaderName.replace("%data%",bio.name);
