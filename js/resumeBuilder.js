@@ -11,7 +11,7 @@ var bio = {
 		"location":"Corrientes, Corrientes, ARG"
 	},
 	"biopic" : "https://pbs.twimg.com/profile_images/484164821839929344/eIoc7KyP.png",
-	"skills": ["Web Develorper","Entrepreneur", "Generalist"]
+	"skills": ["Entrepreneur", "Generalist", "Web Develorper Jr."]
 };
 
 
