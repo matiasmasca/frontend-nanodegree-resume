@@ -1,7 +1,7 @@
 var bio = {
 	"name" : "Matías Mascazzini",
 	"role" : "Tecnólogo",
-	"welcomeMessage" : "Hola Mundo JavaScript",
+	"welcomeMessage" : "Hola engorroso Mundo de JavaScript!",
 	"age" : "33",
 	"contactInfo" : {
 		"mobile":"379-4781004",
@@ -10,10 +10,10 @@ var bio = {
 		"twitter":"@matiasmasca",
 		"location":"Corrientes, Corrientes, ARG"
 	},
-	"bioPictureURL" : "images/me.jpg",
-	
-	"skills": ["Desarrollador Web","Emprendedor", "Generalista"]
+	"biopic" : "https://pbs.twimg.com/profile_images/484164821839929344/eIoc7KyP.png",
+	"skills": ["Web Develorper","Entrepreneur", "Generalist"]
 };
+
 
 var work = {
 	"jobs": [
@@ -26,7 +26,6 @@ var work = {
 	"city" : "Corrientes, ARG"
 };
 
- Each project object in projects should contain a title, dates worked, description, and an images array with URL strings for project images.
 var projects = { "projects": 
 	[{
 		"title":" Proyecto 1", 
@@ -78,3 +77,23 @@ var education = {
 	}
 	]
 };
+
+var formattedName = HTMLheaderName.replace("%data%",bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+
+$("#main").prepend(formattedRole);
+$("#main").prepend(formattedName);
+
+var formattedEmail = HTMLemail.replace("%data%",bio.contactInfo.email);
+$("#letsConnect").append(formattedEmail);
+var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactInfo.twitter);
+$("#letsConnect").append(formattedTwitter);
+
+
+if(bio.skills.length > 0)
+{
+  $("#header").append(HTMLskillsStart);
+  for (var i = 0; i < bio.skills.length; i++) {
+    $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
+  };
+}
