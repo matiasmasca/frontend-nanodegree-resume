@@ -4,11 +4,11 @@ var bio = {
 	"welcomeMessage" : "Hola engorroso Mundo de JavaScript, larga vida a Ruby!",
 	"age" : "33",
 	"contactInfo" : {
-		"mobile":"379-4781004",
+		"mobile":"+543794781004",
 		"email":"matiasmasca@gmail.com",
 		"github":"matiasmasca",
 		"twitter":"@matiasmasca",
-		"location":"Corrientes, Corrientes, ARG"
+		"location":"Corrientes"
 	},
 	"biopic" : "https://pbs.twimg.com/profile_images/484164821839929344/eIoc7KyP.png",
 	"skills": ["Entrepreneur", "Generalist", "Web Develorper Jr."]
@@ -29,16 +29,16 @@ var work = {
 
 var projects = { "projects": 
 	[{
-		"title":" Proyecto 1", 
-		"datesWorked":"", 
-		"description":"", 
-		"images" : ["url1","url2"] 
+		"title":"ComunidadTIC", 
+		"dates":"01/01/2006 - Current", 
+		"description":"Crear una comunidad virtual para los interesados en las TICs.", 
+		"images" : ["https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-frc3/v/t1.0-9/1014443_544787838910933_460571798_n.jpg?oh=b0f89cc732f6ecc953bfe16a47365c9a&oe=55223FC2&__gda__=1433068342_f5f9e01c987abe003ac919d12bd9f2c4","https://pbs.twimg.com/media/B2gDzyqCEAANxGT.jpg"] 
 		},
 		{
-		"title":"Proyecto 2", 
-		"datesWorked":"", 
-		"description":"", 
-		"images" : ["url1","url2"] 
+		"title":"Santa Ana Web", 
+		"dates":"05/11/2013 - Current", 
+		"description":"Colaborar en la mejora del portal. Agregar una vista para dispositivos móviles.", 
+		"images" : ["https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/960164_10151892301747380_840613429_n.jpg?oh=00d3db2341ee3b8654203fdb2f4d19f9&oe=556EB30F&__gda__=1429087392_e9348a634d91e4f24af11138d3a9e958","https://scontent-a-mia.xx.fbcdn.net/hphotos-frc3/v/t1.0-9/q82/p180x540/1176367_10151781000742380_527436760_n.jpg?oh=4e6ebe44cf88b26af1e8c6e14ca838f7&oe=552EB1F8"] 
 		}
 	]
 };
@@ -85,20 +85,30 @@ var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
 $("#main").prepend(formattedRole);
 $("#main").prepend(formattedName);
 
+$("#header").append(HTMLbioPic.replace("%data%",bio.biopic));
+$("#header").append(HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage));
+
 // - Datos de Contacto.
 // -- formatear datos.
 var formattedMobile = HTMLmobile.replace("%data%",bio.contactInfo.mobile);
 var formattedEmail = HTMLemail.replace("%data%",bio.contactInfo.email);
 var formattedGitHub = HTMLgithub.replace("%data%",bio.contactInfo.github);
 var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactInfo.twitter);
+var formattedLocationContact = HTMLlocation.replace("%data%",bio.contactInfo.location);
 // -- agregar datos
-$("#topContacts").append(formattedMobile);
+//$("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGitHub);
 $("#topContacts").append(formattedTwitter);
+$("#topContacts").append(formattedLocationContact);
 
-$("#header").append(HTMLbioPic.replace("%data%",bio.biopic));
-$("#header").append(HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage));
+$("#footerContacts").append(formattedMobile);
+$("#footerContacts").append(formattedEmail);
+$("#footerContacts").append(formattedGitHub);
+$("#footerContacts").append(formattedTwitter);
+$("#footerContacts").append(formattedLocationContact);
+
+
 
 if(bio.skills.length > 0)
 {
@@ -128,3 +138,30 @@ if (work.jobs.length > 0) {
 }
 
 displayWork();
+
+//Para internacionalizar el apellido poniendolo en mayuscula.
+function inName(name){
+    var re = /\s/; //expresion regular
+    var nameList = name.split(re);
+	 nameList[0] = nameList[0].slice(0,1).toUpperCase() + nameList[0].slice(1).toLowerCase();
+	 nameList[1] = nameList[1].toUpperCase();	
+	return nameList[0] + " " + nameList[1];
+}
+$("#main").append(internationalizeButton);
+
+projects.display = function() {
+  for (project in projects.projects) {
+	$("#projects").append(HTMLprojectStart);
+	var formattedTitleP = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+	var formattedDatesP = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+	var formattedDescriptionP = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+	var formattedImg1P = HTMLprojectImage.replace("%data%", projects.projects[project].images[0]);
+	var formattedImg2P = HTMLprojectImage.replace("%data%", projects.projects[project].images[1]);
+	$(".project-entry:last").append(formattedTitleP);
+	$(".project-entry:last").append(formattedDatesP);
+	$(".project-entry:last").append(formattedDescriptionP);
+	$(".project-entry:last").append(formattedImg1P);
+	$(".project-entry:last").append(formattedImg2P);
+  };
+}
+projects.display(); //puse esto porque no mostraba los proyectos.
