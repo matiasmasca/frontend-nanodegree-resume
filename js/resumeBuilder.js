@@ -1,7 +1,7 @@
 var bio = {
 	"name" : "Matías Mascazzini",
 	"role" : "Tecnólogo",
-	"welcomeMessage" : "Hola engorroso Mundo de JavaScript!",
+	"welcomeMessage" : "Hola engorroso Mundo de JavaScript, larga vida a Ruby!",
 	"age" : "33",
 	"contactInfo" : {
 		"mobile":"379-4781004",
@@ -85,10 +85,20 @@ var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
 $("#main").prepend(formattedRole);
 $("#main").prepend(formattedName);
 
+// - Datos de Contacto.
+// -- formatear datos.
+var formattedMobile = HTMLmobile.replace("%data%",bio.contactInfo.mobile);
 var formattedEmail = HTMLemail.replace("%data%",bio.contactInfo.email);
-$("#letsConnect").append(formattedEmail);
+var formattedGitHub = HTMLgithub.replace("%data%",bio.contactInfo.github);
 var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactInfo.twitter);
-$("#letsConnect").append(formattedTwitter);
+// -- agregar datos
+$("#topContacts").append(formattedMobile);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedGitHub);
+$("#topContacts").append(formattedTwitter);
+
+$("#header").append(HTMLbioPic.replace("%data%",bio.biopic));
+$("#header").append(HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage));
 
 if(bio.skills.length > 0)
 {
@@ -98,6 +108,7 @@ if(bio.skills.length > 0)
   };
 }
 
+function displayWork(){
 if (work.jobs.length > 0) {
   for (job in work.jobs) {
 	//$("#workExperience").append(HTMLworkEmployer.replace("%data%", work.jobs[job].employer));
@@ -114,3 +125,6 @@ if (work.jobs.length > 0) {
 	$(".work-entry:last").append(formattedDescription);
   };	
 };
+}
+
+displayWork();
