@@ -165,3 +165,5 @@ projects.display = function() {
   };
 }
 projects.display(); //puse esto porque no mostraba los proyectos.
+
+$("#mapDiv").append(googleMap);
