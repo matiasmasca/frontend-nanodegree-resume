@@ -3,12 +3,12 @@ var bio = {
 	"role" : "Tecnólogo",
 	"welcomeMessage" : "Hola engorroso Mundo de JavaScript, larga vida a Ruby!",
 	"age" : "33",
-	"contactInfo" : {
+	"contacts" : {
 		"mobile":"+543794781004",
 		"email":"matiasmasca@gmail.com",
 		"github":"matiasmasca",
 		"twitter":"@matiasmasca",
-		"location":"Corrientes"
+		"location":"25 de Mayo 1907, Corrientes, Corrientes, Argentina"
 	},
 	"biopic" : "https://pbs.twimg.com/profile_images/484164821839929344/eIoc7KyP.png",
 	"skills": ["Entrepreneur", "Generalist", "Web Develorper Jr."]
@@ -17,9 +17,9 @@ var bio = {
 
 var work = {
 	"jobs": [
-		{"employer":"TEX", "title":"Consultor Asociado", "location":"Corrientes, ARG", "dates":"05/08/2013 - Current", "description":"Como consultor Consultor Asociado me encargo de prestar a los clientes las asesorías tecnicas necesarias. Como Ejecutivo de Cuentas, me encargo de mantener la relación con los clientes y atender a sus posibles necesidades."},
-		{"employer":"Connextion", "title":"Ejecutivo de Cuentas", "location":"Corrientes, ARG", "dates":"05/08/2013 - Current", "description":"Me encargo de atender a una serie de clientes especificos, gestionar el pago de mensualidades y la adquisición de nuevos servicios."},
-		{"employer":"Terciar", "title":"Consultor Asociado", "location":"Corrientes, ARG", "dates":"01/01/2014 - Current", "description":"Me encargo de prestar servicios de consultoría tecnólogica a los clientes."}
+		{"employer":"TEX", "title":"Consultor Asociado", "location":"Santa Ana de los Guacaras, Corrientes, Argentina", "dates":"05/08/2013 - Current", "description":"Como consultor Consultor Asociado me encargo de prestar a los clientes las asesorías tecnicas necesarias. Como Ejecutivo de Cuentas, me encargo de mantener la relación con los clientes y atender a sus posibles necesidades."},
+		{"employer":"Creaxtion", "title":"Ejecutivo de Cuentas", "location":"Junin 941, Corrientes, Corrientes, Argentina", "dates":"05/08/2013 - Current", "description":"Me encargo de atender a una serie de clientes especificos, gestionar el pago de mensualidades y la adquisición de nuevos servicios."},
+		{"employer":"Terciar", "title":"Consultor Asociado", "location":"Necochea 1800, Corrientes, Corrientes, Argentina", "dates":"01/01/2014 - Current", "description":"Me encargo de prestar servicios de consultoría tecnólogica a los clientes."}
 	],
 	"currentJobPosition": "Consultor Tecnólogico",
 	"employer": "TEX, Terciar and Connextion",
@@ -47,7 +47,7 @@ var education = {
 "schools" : [
   {
 	"name": "Facultad de Ciencias Exactas (Universidad Nacional de Nordeste)",
-	"city" : "Corrientes, Corrientes, ARG", 
+	"city" : "9 de Julio 1449, Corrientes, Corrientes, ARG", 
 	"year" : "2008",
 	"degree": "pre-grado",
 	"minor" : "CompSci",
@@ -55,7 +55,7 @@ var education = {
   },
  {
 	"name": "Facultad de Ciencias Exactas (Universidad Nacional de Nordeste)",
-	"city" : "Corrientes, Corrientes, ARG",
+	"city" : "Av. Libertad 5400, Corrientes, Corrientes, ARG",
 	"year" : "2014",
 	"degree" : "Bachelor degree in information systems", 
 	"major" : "information systems",
@@ -90,11 +90,11 @@ $("#header").append(HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage));
 
 // - Datos de Contacto.
 // -- formatear datos.
-var formattedMobile = HTMLmobile.replace("%data%",bio.contactInfo.mobile);
-var formattedEmail = HTMLemail.replace("%data%",bio.contactInfo.email);
-var formattedGitHub = HTMLgithub.replace("%data%",bio.contactInfo.github);
-var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactInfo.twitter);
-var formattedLocationContact = HTMLlocation.replace("%data%",bio.contactInfo.location);
+var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+var formattedGitHub = HTMLgithub.replace("%data%",bio.contacts.github);
+var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+var formattedLocationContact = HTMLlocation.replace("%data%",bio.contacts.location);
 // -- agregar datos
 //$("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
@@ -167,3 +167,5 @@ projects.display = function() {
 projects.display(); //puse esto porque no mostraba los proyectos.
 
 $("#mapDiv").append(googleMap);
+
+// initializeMap();
